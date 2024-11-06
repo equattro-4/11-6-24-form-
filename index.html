@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <title>Political Opinion Form</title>
+</head>
+<body>
+
+    <h1>Collecting Political Opinions</h1>
+
+    <form id="opinionForm">
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="date">Today's Date:</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <p>Who did you vote for in 2024?</p>
+        <label for="vote">Choose one:</label><br>
+        <select id="vote" name="vote" required>
+            <option value="donald-trump">Donald J Trump</option>
+            <option value="kamala-harris">Kamala Harris</option>
+            <option value="third-party">Third Party</option>
+        </select><br><br>
+
+        <p>Do you wish there were better options?</p>
+        <input type="radio" id="yes" name="better_options" value="yes" required>
+        <label for="yes">Yes</label><br>
+
+        <input type="radio" id="no" name="better_options" value="no">
+        <label for="no">No</label><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('opinionForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // stop page from re reloading
+
+            //  get collect form data
+            const email = document.getElementById('email').value;
+            const date = document.getElementById('date').value;
+            const name = document.getElementById('name').value;
+            const vote = document.getElementById('vote').value;
+            const betterOptions = document.querySelector('input[name="better_options"]:checked').value;
+
+            // take  collected data  console
+            console.log("Form Data:");
+            console.log("Email:", email);
+            console.log("Date:", date);
+            console.log("Name:", name);
+            console.log("Voted for:", vote);
+            console.log("Wishes for better options:", betterOptions);
+        });
+    </script>
+
+</body>
+</html>
